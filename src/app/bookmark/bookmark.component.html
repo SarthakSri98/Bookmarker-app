@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<div class="heading">
+    <h1>Bookmark App</h1>
+    <h2>Angular 5 development by <a href='https://www.linkedin.com/in/sarthaksri98/'>Sarthak Srivastava</a></h2>
+    <form (ngSubmit)="addBookmark()" [formGroup]='bookmarkForm'>
+      <input class="form-control" placeholder='Input website name here!' name="name" formControlName='name' autocomplete='off'><br>
+      <input class="form-control" placeholder="Input website's URL here!" name="link" formControlName='link' autocomplete='off'><br>
+      <button class="btn btn-success" [disabled]="!bookmarkForm.valid">Submit</button>
+    </form>
+    
+</div>
+<div class="page">
+<div *ngFor='let bookmark of bookmarks' class="container">
+     <span>{{bookmarks.indexOf(bookmark)+1}}. Name: {{bookmark.name}}</span><br>
+     &nbsp;&nbsp; URL:<a target='_blank' [href]='bookmark.link'> {{bookmark.link}}</a>
+     <span class='btn1' (click)='deleteBookmark(bookmark)'>x</span>
+</div>
+</div>
